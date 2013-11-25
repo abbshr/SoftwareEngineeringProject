@@ -84,9 +84,11 @@
         //'app': ,
         //'mainpanel': ,
         'viewdatabase': viewAllWords,
+        'viewwrong': viewWrongWords,
         'add': addWords,
         'remove': delWords,
-        'start': startTest
+        'start': startTest,
+        'commit': commit
         //'activebox': ,
         //'profile': ,
         //'conf': ,
