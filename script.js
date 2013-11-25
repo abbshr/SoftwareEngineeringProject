@@ -68,15 +68,15 @@
     };
 
     //get frame & btn will be used 
-    var app = $id('app'),
+    var //app = $id('app'),
         panel = $id('mainpanel'),
-        viewer_btn = $id('viewdatabase'),
-        add_btn = $id('add'),
-        remove_btn = $id('remove'),
-        start_btn = $id('start'),
-        /*profile = $id('profile'),
-        conf = $id('conf'),
-        plus = $id('plus'),*/
+        //viewer_btn = $id('viewdatabase'),
+        //add_btn = $id('add'),
+        //remove_btn = $id('remove'),
+        //start_btn = $id('start'),
+        profile = $id('profile'),
+        //conf = $id('conf'),
+        //plus = $id('plus'),
         activebox = $id('activebox');
 
     //the elements' id name hash list
@@ -105,7 +105,9 @@
     function startTest(target) {}
 
     //router: callback of add_btn's 'Click' event
-    function addWords(target) {}
+    function addWords(target) {
+        
+    }
 
     //router: callback of remove_btn's 'Click' event
     function delWords(target) {}
@@ -160,7 +162,8 @@
 
     //bind callback for panel's children
     panel.addEventListener('click', callback);
-    //profile.addEventListener('click', callback);
+    profile.addEventListener('click', callback);
+    activebox.addEventListener('click', callback);
 
     return console.log("Initialization successful~");
 })(this);
