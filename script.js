@@ -39,9 +39,9 @@
         add_btn = $id('add'),
         remove_btn = $id('remove'),
         start_btn = $id('start'),
-        profile = $id('profile'),
+        /*profile = $id('profile'),
         conf = $id('conf'),
-        plus = $id('plus'),
+        plus = $id('plus'),*/
         activebox = $id('activebox');
 
     var actionList = {};
@@ -58,11 +58,11 @@
 
     function viewAllWords(e) {}
 
-    function viewWrong
+    function subscribe(e) {}
 
     //bind callback for panel's children
     panel.addEventListener('click', callback);
-    profile.addEventListener('click', callback);
+    //profile.addEventListener('click', callback);
 
     return console.log("Initialization successful~");
 })(this);
