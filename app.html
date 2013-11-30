@@ -1,33 +1,83 @@
 <!DOCTYPE html>
 
-<html>
-<head>
-    <title>
-    </title>
-    <link rel="stylesheet" type="text/css" href="./style.css">
+<html lang="zh-CN"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WordHelper</title>
+    <link rel="stylesheet" type="text/css" href="./style/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="./style/bootstrap.min.css">
 </head>
    
 <body>
-    <div id="app">
-
-        <div id="mainpanel">
-            <div id="viewdatabase"></div>
-            <div id="add"></div>
-            <div id="remove"></div>
-            <div id="start"></div>
+    <div class="container" style="padding: 0 15px;">
+        <br><br><br>
+        <div class="row">
+            <div class="col-xs-9 col-sm-5 col-md-5" id="btngrp">
+                <button type="button" class="btn btn-primary" id="viewall">View All</button>
+                <button type="button" class="btn btn-warning" id="viewwrong">View Wrong Words</button>
+                <button type="button" class="btn btn-success" id="start">Start !</button>
+                <button type="button" class="btn btn-info" id="guide">Guide</button>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">      
+                <input type="text" class="form-control" placeholder="test number" id="testnum">
+            </div>
         </div>
+        <br><br>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="jumbotron" id="board">
+                    <h2>Words Helper</h2>
+                    <p>click "guide" button to get start!</p>
+                    <p></p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div id="profile">
-            <div id="conf"></div>
-            <div id="plus"></div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="row">
+                    <div class="col-xs-10 col-sm-9 col-md-9">
+                        <input type="text" class="form-control" placeholder="input here" id="input">
+                    </div>
+                    <div class="col-xs-offset-2 col-sm-offset-9 col-md-offset-9">
+                        <button type="button" class="btn btn-default" id="commit">Commit</button>
+                    </div>
+                </div>
+                <br>
+                <div class="panel panel-default">
+                    <div class="panel-body" style="overflow: auto;" id="feedback">
+                        <h2>Words Helper</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">profile</h3>
+                    </div>
+                    <div class="panel-body" id="profile">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="new word" id="newword">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="property" id="property">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="chinese meaning" id="transfer">
+                        </div>
+                        <button type="button" class="btn btn-info" id="add">add</button>
+                        <br><br>
+                        <div class="form-group has-error">
+                            <input type="text" class="form-control" placeholder="remove a word" id="oldword">
+                        </div>
+                        <button type="button" class="btn btn-danger" id="remove">remove</button>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div id="activebox">
-
-        </div>
-
     </div>
-
-    <footer></footer>
+    <script src="./script/script.js"></script>
 </body>
 </html>
