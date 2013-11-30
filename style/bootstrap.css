@@ -2235,6 +2235,7 @@ textarea.input-lg {
 }
 
 .btn {
+  outline:none;
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
@@ -2259,6 +2260,7 @@ textarea.input-lg {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
+  outline:none;
 }
 
 .btn:hover,
