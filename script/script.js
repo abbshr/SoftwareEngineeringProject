@@ -2,8 +2,7 @@
 /*
 *   Project Name: WordHelper
 *   Author: Ran Aizen
-*   Date: 2013-11-25
-*   Members: []
+*   Date: 2013-11-30
 *   this is a JavaScript file for app.html
 *   Ran(c)copyright 2013
 */
@@ -182,11 +181,12 @@
             item.appendChild(a);
             wordsList.appendChild(item);
         }
+        feedback.appendChild(wordsList);
     }
 
     function startTest(target) {
         var testNum = $id('testnum').value;
-        verify(testNum) && started(testNum)
+        (typeof testNum != 'number') && (testNum > 0) && started(testNum)
     }
 
     /*function guide(target) {
@@ -241,7 +241,7 @@
         sessions['details'] = [];
         sessions['testNum'] = testNum;
         sessions['all'] = db.all.toArray();
-console.log(sessions);
+        sessions['wrong'] = [];
         var commit = $id('commit');
         var input = $id('input');
         input.disabled = false;
@@ -274,6 +274,7 @@ console.log(sessions);
             input.disabled = true;
             commit.disabled = true;
             delete actionList['commit'];
+            remark();
             return;
         }
         nextTest(sessions);
@@ -314,6 +315,7 @@ console.log(sessions);
     function removed(oldword) {
         var oldword = $id('oldword').value;
         db.all.removeItem(oldword);
+        db.wrong.removeItem(oldword);
     }
 
     function verify(value) {
@@ -333,6 +335,9 @@ console.log(sessions);
             alert.setAttribute('class', 'alert alert-success');
             text.textContent += 'Perfact! Answer Right!'
         } else {
+            sessions['wrong'].push(rightAns);
+            var item = db.all.findItem(rightAns);
+            db.wrong.findItem(rightAns) || db.wrong.insertItem(rightAns, item);
             alert.setAttribute('class', 'alert alert-danger');
             text.textContent += ('Ooh~, Sorry u r Wrong, the right answer is ' + rightAns);
         }
@@ -340,5 +345,31 @@ console.log(sessions);
         feedback.appendChild(alert);
     }
 
-    return console.log("Initialization successful~");
+    function remark() {
+        var feedback = $id('feedback');
+        feedback.innerHTML = '';
+
+        var alert = createE('div');
+        alert.setAttribute('class', 'alert alert-info');
+        
+        var h2 = createE('h2');
+        var title = createT('测试结束～');
+        h2.appendChild(title);
+        alert.appendChild(h2);
+        alert.appendChild(createE('br'));
+
+        var rightNum = sessions.testNum - sessions.wrong.length;
+        alert.appendChild(createT('本次测试单词总数：' + sessions.testNum));
+        alert.appendChild(createE('br'));
+        alert.appendChild(createT('正确回答数：' + rightNum));
+        alert.appendChild(createE('br'));
+        alert.appendChild(createT('回答错误：' + sessions.wrong.length));
+        alert.appendChild(createE('br'));
+        alert.appendChild(createT('正确率：' + (rightNum / sessions.testNum) * 100 + '%'));
+        alert.appendChild(createE('br'));
+        
+        feedback.appendChild(alert);
+    }
+
+    return console.log("%cInitialization successful~", "font-size: 15px; color: green");
 })(this);
