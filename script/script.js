@@ -112,11 +112,6 @@
         }
     };
 
-    //get frame & btn will be used 
-    var btnGroup = $id('btngrp'),
-        commit = $id('commit'),
-        profile = $id('profile');
-
     //the btn' id name hash list
     var actionList = {
         'viewall': viewAll,
