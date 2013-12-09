@@ -220,8 +220,8 @@
             p1 = createE('p'),
             p2 = createE('p');
         var h2_text = createT(wordObj.word),
-            p1_text = createT(wordObj.property),
-            p2_text = createT(wordObj.meaning);
+            p1_text = createT('词性：' + wordObj.property),
+            p2_text = createT('汉义：' + wordObj.meaning);
 
         h2.appendChild(h2_text);
         p1.appendChild(p1_text);
@@ -263,6 +263,8 @@
         var progress = $id('progress');
         progress.setAttribute('style', 'width: ' + (currentNum / testNum)*100 + '%');
         subscribe(answer);
+        $id('input').value = '';
+        $id('input').focus();
         if (currentNum >= testNum) {
             var commit = $id('commit');
             var input = $id('input');
@@ -305,12 +307,17 @@
             meaning: transfer_text
         };
         db.all.isExsit(newword_text) || db.all.insertItem(newword_text, doc);
+        $id('newword').value = '';
+        $id('property').value = '';
+        $id('transfer').value = '';
+        $id('newword').focus();
     }
 
     function removed(oldword) {
         var oldword = $id('oldword').value;
         db.all.removeItem(oldword);
         db.wrong.removeItem(oldword);
+        $id('oldword').value = '';
     }
 
     function verify(value) {
