@@ -367,7 +367,7 @@
         alert.appendChild(createE('br'));
         alert.appendChild(createT('回答错误：' + sessions.wrong.length));
         alert.appendChild(createE('br'));
-        alert.appendChild(createT('正确率：' + (rightNum / sessions.testNum) * 100 + '%'));
+        alert.appendChild(createT('正确率：' + Math.round((rightNum / sessions.testNum) * 100) + '%'));
         alert.appendChild(createE('br'));
         
         feedback.appendChild(alert);
