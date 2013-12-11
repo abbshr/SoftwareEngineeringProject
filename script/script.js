@@ -243,6 +243,9 @@
         commit.disabled = false;
         actionList['commit'] = comYourAns;
 
+        var feedback = $id('feedback');
+        feedback.innerHTML = '';
+
         if ($id('progress')) $id('progress').parentNode.remove();
         var progressbar = createE('div');
         var progress = createE('div');
