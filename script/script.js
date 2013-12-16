@@ -274,7 +274,7 @@
             input.disabled = true;
             commit.disabled = true;
             delete actionList['commit'];
-            remark();
+            setTimeout(remark, 600);
             return;
         }
         nextTest(sessions);
